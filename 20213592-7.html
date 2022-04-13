@@ -1,4 +1,4 @@
-<!--做的不完善,整个程序跑一遍就会崩溃,不过,程序可修改幅度大,可挽救程度高-->
+<!--做的不完善,完成了,但又没完成,就老师放过-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +27,8 @@
         //the whole program could display different length of poem!
         var next=document.querySelector('input#next');
         next.onclick=function(){
-        for(i=3+i;i<stringarry.length;i++){
+        //when it get click,the circle begin to work,make poem begin show up!
+        for(i=3+i;i<=stringarry.length;i++){
             if((parseInt)(stringarry[i])>=0&&(parseInt)(stringarry[i])<10){
               console.log(i);//texting it work or not!
             break;
@@ -36,10 +37,14 @@
             {  span.textContent =stringarry.substring(0,i);
                console.log(poemContent);//texting the poemContent will show in right ways or not!
             } 
-            j++
+            j++;
+            if(i>=stringarry.length)//this is a circle sentence,make whole poem could start in beginning!
+            {
+                i=3;
+            }
             } 
         }
-        var prew=document.querySelector('input#prew');
+        var prew=document.querySelector('input#prew');// the follows' codes are the same as above!
         prew.onclick=function(){
             for(i=i-3;i<stringarry.length;i--){
             if((parseInt)(stringarry[i])>=0&&(parseInt)(stringarry[i])<10){
@@ -48,10 +53,11 @@
             }
             else 
             {  span.textContent =stringarry.substring(3,i);
-                console.log('do you like here?');
-               console.log(poemContent);
             } 
             j--;
+            if(i<=165){
+                i=835;
+            }
             } 
         }
     </script>
